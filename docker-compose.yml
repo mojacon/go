@@ -1,0 +1,15 @@
+version: '3'
+services:
+  mojacon_go:
+    build:
+      context: .
+      dockerfile: ./docker/golang/Dockerfile
+    container_name: mojacon_go
+    tty: true
+    volumes:
+      - .:/mojacon_go:rw
+    ports:
+      - 3001:3001
+    command: go run /mojacon_go/main.go
+volumes:
+  profile-data:
